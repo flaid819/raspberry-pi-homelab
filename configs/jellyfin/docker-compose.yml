@@ -4,19 +4,16 @@ services:
   jellyfin:
     container_name: jellyfin
     image: jellyfin/jellyfin:latest
-    # Jellyfin streams video, so we don't want it isolated.
+    # Expose Jellyfin's web interface and streaming service
     ports:
       - "8096:8096"
     # Where Jellyfin stores its internal data (library db, user prefs)
     volumes:
       - /mnt/storage/jellyfin/config:/config
       - /mnt/storage/jellyfin/cache:/cache
-      # Your actual media library on the SSD
+      # The actual media library on the SSD
       - /mnt/storage/media:/media
 
-    # Optional but nice: restart if Pi reboots
+    # Restart if Pi reboots
     restart: unless-stopped
 
-    # Hardware acceleration note:
-    # The Pi 5 *can* do some HW accel but it's evolving fast.
-    # We start without special devices passed in. We can tune later.
