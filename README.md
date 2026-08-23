@@ -14,3 +14,7 @@ A Raspberry Pi 5 homelab used to host self-managed services with Docker and expe
 - `configs/` — Docker Compose configurations for hosted services
 - `docs/` — Homelab documentation and diagrams
 - `scripts/` — Automation and administration scripts
+
+## Documentation
+
+- [Homelab Overview](docs/homelab-overview.md)
